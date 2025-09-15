@@ -1,0 +1,187 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Local font registrations */
+@font-face {
+  font-family: "Antonio";
+  src: url("./assets/fonts/Antonio-Var-Subset.woff2") format("woff2");
+  font-weight: 300 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("./assets/fonts/Inter-Var-Subset.woff2") format("woff2");
+  font-weight: 300 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Metric-override fallback faces to reduce layout shift during swap */
+@font-face {
+  font-family: "Inter Fallback";
+  src: local("Arial");
+  ascent-override: 90%;
+  descent-override: 22%;
+  line-gap-override: 0%;
+  size-adjust: 107.64%;
+}
+
+@font-face {
+  font-family: "Antonio Fallback";
+  src: local("Arial Black"), local("Arial");
+  ascent-override: 92%;
+  descent-override: 8%;
+  line-gap-override: 0%;
+  size-adjust: 92%;
+}
+
+/* Skynex Digital Agency Design System - Professional & Conversion-Focused */
+
+@layer base {
+  :root {
+    /* Core Brand Colors */
+    --background: 0 0% 100%;
+    --foreground: 215 25% 15%;
+    
+    /* Brand Primary (from #5e67e6 => hsl(236 73% 64%)) */
+    --primary: 236 73% 64%;
+    --primary-foreground: 0 0% 100%;
+    --primary-light: 236 73% 74%;
+    --primary-dark: 236 73% 54%;
+    
+    /* Trust-Building Secondary */
+    --secondary: 210 30% 96%;
+    --secondary-foreground: 215 25% 15%;
+    
+    /* Conversion Orange */
+    --accent: 25 95% 55%;
+    --accent-foreground: 0 0% 100%;
+    --accent-hover: 25 95% 45%;
+    
+    /* Professional Grays */
+    --muted: 210 15% 95%;
+    --muted-foreground: 215 15% 55%;
+    --muted-dark: 215 15% 75%;
+    
+    /* Success Green for Results */
+    --success: 145 65% 45%;
+    --success-foreground: 0 0% 100%;
+    
+    /* Cards & UI Elements */
+    --card: 0 0% 100%;
+    --card-foreground: 215 25% 15%;
+    --border: 210 20% 90%;
+    --input: 210 20% 96%;
+    --ring: 215 85% 25%;
+    
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(215 85% 25%), hsl(215 85% 35%));
+    --gradient-cta: linear-gradient(135deg, hsl(25 95% 55%), hsl(25 95% 45%));
+    --gradient-subtle: linear-gradient(180deg, hsl(0 0% 100%), hsl(210 30% 98%));
+    
+    /* Shadows */
+    --shadow-soft: 0 4px 20px -4px hsl(215 85% 25% / 0.1);
+    --shadow-medium: 0 8px 30px -8px hsl(215 85% 25% / 0.15);
+    --shadow-strong: 0 16px 40px -12px hsl(215 85% 25% / 0.2);
+    --shadow-cta: 0 8px 25px -8px hsl(25 95% 55% / 0.3);
+    
+    /* Typography Scale */
+    --text-hero: 3.5rem;
+    --text-xl: 2.25rem;
+    --text-lg: 1.5rem;
+    --text-base: 1rem;
+    --text-sm: 0.875rem;
+    
+    /* Spacing */
+    --section-padding: 5rem;
+    --container-max: 1200px;
+    
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 215 25% 8%;
+    --foreground: 0 0% 95%;
+    
+    /* Brand Primary (from #5e67e6 => hsl(236 73% 64%)) */
+    --primary: 236 73% 64%;
+    --primary-foreground: 215 25% 8%;
+    --primary-light: 236 73% 74%;
+    --primary-dark: 236 73% 54%;
+    
+    --secondary: 215 15% 15%;
+    --secondary-foreground: 0 0% 95%;
+    
+    --accent: 25 95% 55%;
+    --accent-foreground: 0 0% 100%;
+    --accent-hover: 25 95% 45%;
+    
+    --success: 145 65% 45%;
+    --success-foreground: 0 0% 100%;
+    
+    --muted: 215 15% 12%;
+    --muted-foreground: 215 15% 65%;
+    --muted-dark: 215 15% 25%;
+    
+    --card: 215 15% 10%;
+    --card-foreground: 0 0% 95%;
+    --border: 215 15% 20%;
+    --input: 215 15% 15%;
+    --ring: 215 85% 60%;
+    
+    /* Dark mode gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(215 85% 40%), hsl(215 85% 60%));
+    --gradient-cta: linear-gradient(135deg, hsl(25 95% 55%), hsl(25 95% 45%));
+    --gradient-subtle: linear-gradient(180deg, hsl(215 25% 8%), hsl(215 15% 10%));
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-base font-light font-sans;
+    font-synthesis-weight: none;
+    font-synthesis-style: none;
+    font-optical-sizing: auto;
+  }
+
+  /* Default color for Antonio font; utilities (e.g., text-primary) can override */
+  .font-antonio {
+    color: #303030;
+  }
+}
+
+@layer utilities {
+  .font-antonio {
+    @apply uppercase;
+    letter-spacing: -0.03em;
+    font-synthesis-weight: none;
+    font-optical-sizing: auto;
+  }
+}
