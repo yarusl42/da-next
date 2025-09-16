@@ -4,6 +4,7 @@ import { usePathname } from "next/navigation";
 import { useEffect } from "react";
 import Header from "@/components/Header";
 import NoiseBg from "@/components/NoiseBg";
+import Link from "next/link";
 
 const NotFound = () => {
   const pathname = usePathname();
@@ -25,9 +26,9 @@ const NotFound = () => {
         <div className="text-center">
           <h1 className="text-5xl font-bold mb-4">404</h1>
           <p className="text-base mb-4">Oops! Page not found</p>
-          <a href="/" className="text-blue-500 hover:text-blue-700 underline">
+          <Link href="/" className="text-blue-500 hover:text-blue-700 underline">
             Return to Home
-          </a>
+          </Link>
         </div>
       </main>
     </div>
