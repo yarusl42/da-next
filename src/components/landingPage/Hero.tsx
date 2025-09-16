@@ -33,11 +33,11 @@ const Hero: React.FC = () => {
         >
           {/* Left: subtitle, headline, CTA */}
           <div className="lg:pr-6 flex flex-col justify-center w-full lg:flex-1 lg:ml-12 px-1">
-            <h1 className="text-4xl sm:text-5xl  font-antonio font-bold leading-tight mb-4 md:ml-[-5px]">
-              <span className="block text-xl sm:text-2xl font-light sm:ml-[3px]">Bring</span>
+            <h1 className="text-5xl sm:text-6xl font-antonio font-bold leading-tight mb-4 md:ml-[-5px]">
+              <span className="block text-2xl sm:text-3xl font-light sm:ml-[3px]">Bring</span>
               <span className="block">more local customers</span>
               <span className="block">to your business</span>
-              <span className="block text-xl sm:text-2xl font-light mt-2 ml-[5px]">with Google</span>
+              <span className="block text-2xl sm:text-3xl font-light mt-2 ml-[5px]">with Google</span>
             </h1>
             <p className="text-base tracking-wide mb-6">We build fast, SEO‑first websites and lead funnels that turn local searches into booked appointments.</p>
             <Button

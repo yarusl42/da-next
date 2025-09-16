@@ -2,10 +2,10 @@ import React from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Star } from "lucide-react";
 import CountUpNumber from "@/components/CountUpNumber";
-import client1 from "@/assets/clients/client_1.avif";
-import client2 from "@/assets/clients/client_2.avif";
-import client3 from "@/assets/clients/client_3.avif";
-import client4 from "@/assets/clients/client_4.avif";
+import client1 from "@/assets/clients/client_1.jpg";
+import client2 from "@/assets/clients/client_2.jpg";
+import client3 from "@/assets/clients/client_3.jpg";
+import client4 from "@/assets/clients/client_4.jpg";
 
 type TestimonialsProps = {
   id?: string;
@@ -29,7 +29,7 @@ const Testimonials: React.FC<TestimonialsProps> = ({ id = "testimonials" }) => {
     {},{},
     {
       text:
-        "From zero online presence to fully booked. Couldn't be happier.",
+        "From zero online presence to fully booked. Couldn\'t be happier.",
       name: "Alina Dikaya",
       company: "Nail Salon",
       image: client4.src,
@@ -94,7 +94,7 @@ const Testimonials: React.FC<TestimonialsProps> = ({ id = "testimonials" }) => {
                             <Star key={i} className="h-4 w-4 fill-current" />
                           ))}
                         </div>
-                        <p className="italic leading-relaxed text-[14px]">"{testimonial.text}"</p>
+                        <p className="italic leading-relaxed text-[14px]">&ldquo;{testimonial.text}&rdquo;</p>
                       </div>
                       <div className="flex items-center gap-4 pt-4">
                         <img

@@ -5,7 +5,7 @@ import { MapPin, TrendingUp, CheckCircle, Clock } from "lucide-react";
 const WhySkynex = forwardRef<HTMLElement>((props, ref) => {
   return (
     <section ref={ref} className="pt-24 relative z-10">
-      <div className="max-w-6xl px-6 max-[1000px]:max-w-md max-[870px]:max-w-xs max-[768px]:max-w-3xl">
+      <div className="mx-auto max-w-6xl px-6 max-[1000px]:max-w-md max-[870px]:max-w-xs max-[768px]:max-w-3xl">
       <motion.div
           initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}

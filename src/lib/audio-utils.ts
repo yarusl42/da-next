@@ -4,7 +4,7 @@ export const playAudio = (audioSrc: string, volume: number = 0.7): void => {
     audio.volume = volume;
     void audio.play();
   } catch (err) {
-    if (import.meta.env.DEV) console.debug("playAudio: failed to play audio", err);
+    if (process.env.NODE_ENV === "development") console.debug("playAudio: failed to play audio", err);
   }
 };
 
@@ -30,6 +30,6 @@ export const playAudioWithFallback = (audioSrc: string, volume: number = 0.7): v
       document.addEventListener("keydown", once, { once: true });
     });
   } catch (err) {
-    if (import.meta.env.DEV) console.debug("playAudioWithFallback: failed to setup audio", err);
+    if (process.env.NODE_ENV === "development") console.debug("playAudioWithFallback: failed to setup audio", err);
   }
 };

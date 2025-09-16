@@ -27,7 +27,7 @@ const ServiceCard: React.FC<{ item: ServiceItem; index: number }> = ({ item, ind
 
   return (
     <Link href={`/services/${item.id}`} className="block cursor-pointer">
-      <article className="grid md:grid-cols-2 gap-6 md:gap-10 items-center p-5 md:p-8 bg-white/70 cursor-pointer">
+      <article className="grid md:grid-cols-2 gap-6 md:gap-10 items-center p-5 md:p-8 cursor-pointer">
         <div
           ref={ref}
           onMouseEnter={onMouseEnter}

@@ -1,9 +1,12 @@
+"use client"
+
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { scrollToContact } from "@/lib/scroll";
 import NavLinks from "@/components/header/NavLinks";
 import { Menu, X } from "lucide-react";
+import Link from "next/link";
 
 const Header = () => {
   const [isHeaderMinimized, setIsHeaderMinimized] = useState(true);
@@ -90,9 +93,9 @@ const Header = () => {
             onMouseEnter={() => setIsHeaderMinimized(false)}
             onMouseLeave={applyScrollLogicOnce}
           >
-            <a href="/" className={`font-bold font-antonio text-primary mr-4 sm:mr-8 ml-2 sm:ml-4 transition-all duration-300 text-2xl sm:text-3xl cursor-pointer`}>
+            <Link href="/" className={`font-bold font-antonio text-primary mr-4 sm:mr-8 ml-2 sm:ml-4 transition-all duration-300 text-2xl sm:text-3xl cursor-pointer`}>
               SKYNEX
-            </a>
+            </Link>
             <motion.div
               ref={linksRef}
               className="hidden md:flex overflow-hidden font-light"

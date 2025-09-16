@@ -1,3 +1,5 @@
+"use client"
+
 import React, { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { motion } from "framer-motion";
@@ -20,6 +22,9 @@ const ChatWidget: React.FC = () => {
   const [loadingContact, setLoadingContact] = useState(false);
   const [botTyping, setBotTyping] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  // SSR guard: only render portal on client after mount
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
 
 
   const handleSendMessage = (e?: React.FormEvent) => {
@@ -99,6 +104,9 @@ const ChatWidget: React.FC = () => {
     }
     // Trigger when messages might grow: step changes, user/bot messages appear
   }, [open, step, userMessage, phone, botGreeted, botTyping]);
+
+  // Do not attempt to render portal on the server
+  if (!mounted) return null;
 
   return createPortal(
     <motion.div
@@ -186,6 +194,7 @@ const ChatWidget: React.FC = () => {
         </motion.div>
       </motion.div>
     </motion.div>,
+    // document is guaranteed in client after mount
     document.body
   );
 };

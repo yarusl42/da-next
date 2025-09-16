@@ -24,7 +24,7 @@ export const ChatMessages: React.FC<ChatMessagesProps> = ({
         <div className="flex items-start gap-2">
           <img src={SKYNEX.src} alt="Assistant" className="h-8 w-8 rounded-full object-cover flex-shrink-0 mt-1" />
           <div className="max-w-[85%] rounded-2xl rounded-bl-sm bg-secondary text-foreground px-3 py-2 text-sm">
-            👋 Hi, I'm Skynex Assistant. What can I help you with today?
+            👋 Hi, I&apos;m Skynex Assistant. What can I help you with today?
           </div>
         </div>
       )}
@@ -80,7 +80,7 @@ export const ChatMessages: React.FC<ChatMessagesProps> = ({
           <div className="flex items-start gap-2">
             <img src={SKYNEX.src} alt="Assistant" className="h-8 w-8 rounded-full object-cover flex-shrink-0" />
             <div className="max-w-[85%] rounded-2xl rounded-bl-sm bg-secondary text-foreground px-3 py-2 text-sm">
-              ✅ Thanks! We've received your details and our team will be in touch very soon.
+              ✅ Thanks! We&apos;ve received your details and our team will be in touch very soon.
             </div>
           </div>
         </div>

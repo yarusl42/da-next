@@ -1,7 +1,7 @@
-import service4 from "@/assets/service_4.avif"
-import service3 from "@/assets/service_3.avif"
-import service2 from "@/assets/service_2.avif"
-import service1 from "@/assets/service_1.avif"
+import service4 from "@/assets/service_4.jpg"
+import service3 from "@/assets/service_3.jpg"
+import service2 from "@/assets/service_2.jpg"
+import service1 from "@/assets/service_1.jpg"
 import type { QAndAItem } from "@/components/QAndAList";
 
 export const servicesData: QAndAItem[] = [

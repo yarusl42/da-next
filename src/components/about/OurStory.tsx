@@ -14,10 +14,10 @@ const OurStory: React.FC = () => {
         <div className="max-w-xl max-[1000px]:max-w-md max-[870px]:max-w-xs max-[768px]:max-w-3xl">
           <h1 className="text-[120px] font-antonio font-bold mb-5 max-[870px]:text-[60px]">Our Story</h1>
           <p className="text-base max-w-3xl max-[768px]:max-w-3xl">
-            From the start, Skynex was built with one goal: help service-based businesses thrive in the digital world. We've seen too many local businesses lose out to competitors simply because their website was outdated, invisible on Google, or difficult to use.
+            From the start, Skynex was built with one goal: help service-based businesses thrive in the digital world. We&apos;ve seen too many local businesses lose out to competitors simply because their website was outdated, invisible on Google, or difficult to use.
           </p>
           <p className="text-base max-w-3xl mt-4">
-            That's why we focus on creating websites and online strategies that actually deliver results: more calls, more bookings, and more customers.
+            That&apos;s why we focus on creating websites and online strategies that actually deliver results: more calls, more bookings, and more customers.
           </p>
           <div className="flex items-center gap-4 mt-6">
             <a href={CONTACT.socials.instagram} target="_blank" rel="noopener noreferrer" aria-label="Skynex on Instagram" className="inline-block">

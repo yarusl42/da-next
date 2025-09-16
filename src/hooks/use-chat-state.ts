@@ -30,7 +30,8 @@ export const useChatState = () => {
       if (typeof saved.phone === "string") setPhone(saved.phone);
       if (typeof saved.botGreeted === "boolean") setBotGreeted(saved.botGreeted);
     } catch (err) {
-      if (import.meta.env.DEV) console.debug("useChatState: failed to read from sessionStorage", err);
+      if (process.env.NODE_ENV !== "production")
+        console.debug("useChatState: failed to read from sessionStorage", err);
     }
   }, []);
 
@@ -40,7 +41,8 @@ export const useChatState = () => {
       const data = JSON.stringify({ step, userMessage, phone, botGreeted });
       sessionStorage.setItem(CHAT_STATE_KEY, data);
     } catch (err) {
-      if (import.meta.env.DEV) console.debug("useChatState: failed to write to sessionStorage", err);
+      if (process.env.NODE_ENV !== "production")
+        console.debug("useChatState: failed to write to sessionStorage", err);
     }
   }, [step, userMessage, phone, botGreeted]);
 

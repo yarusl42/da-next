@@ -1,3 +1,5 @@
+"use client"
+
 import { useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
@@ -5,7 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
-import contactImage from "@/assets/about/about.avif";
+import contactImage from "@/assets/about/about.jpg";
 
 interface ContactProps {
   id?: string;
@@ -17,6 +19,7 @@ const Contact = ({ id = "contact" }: ContactProps) => {
 
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState<null | "ok" | "error">(null);
+  const [errors, setErrors] = useState<{ name?: string; email?: string; message?: string; server?: string }>({});
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -30,12 +33,37 @@ const Contact = ({ id = "contact" }: ContactProps) => {
         email: String(fd.get("email") || ""),
         message: String(fd.get("message") || ""),
       };
+
+      // Client-side validation
+      const nextErrors: { name?: string; email?: string; message?: string } = {};
+      if (!payload.name.trim()) nextErrors.name = "Please enter your name.";
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(payload.email)) nextErrors.email = "Please enter a valid email address.";
+      if (payload.message.trim().length < 10) nextErrors.message = "Please provide a few details (min 10 characters).";
+
+      if (Object.keys(nextErrors).length > 0) {
+        setErrors(nextErrors);
+        setSubmitting(false);
+        return;
+      } else {
+        setErrors({});
+      }
       const res = await fetch("https://adamskaya.at/api/notify/skynex", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
       });
-      if (!res.ok) throw new Error("Request failed");
+      if (!res.ok) {
+        let msg = "Something went wrong. Please try again later.";
+        try {
+          const data = await res.json();
+          if (data?.message && typeof data.message === "string") msg = data.message;
+        } catch {
+          // ignore JSON parse errors
+        }
+        setErrors((prev) => ({ ...prev, server: msg }));
+        throw new Error("Request failed");
+      }
       setSubmitted("ok");
       form.reset();
     } catch (err) {
@@ -50,7 +78,7 @@ const Contact = ({ id = "contact" }: ContactProps) => {
       <div className="max-w-6xl mx-auto px-4 [900px]:px-6">
         <div className="flex flex-row max-[900px]:flex-col gap-12 max-[900px]:gap-8 items-start">
           <motion.div 
-            className="shrink-0 sm:self-center sm:mb-8"
+            className="shrink-0 self-start max-[900px]:self-center max-[900px]:mb-8"
             initial={{ opacity: 0, rotateY: -90, x: -100 }}
             animate={contactInView ? { opacity: 1, rotateY: 0, x: 0 } : {}}
             transition={{ duration: 0.8, ease: "easeOut" }}
@@ -78,17 +106,40 @@ const Contact = ({ id = "contact" }: ContactProps) => {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
                       <label className="block text-sm text-primary mb-2">Name</label>
-                      <Input name="name" className="bg-gray-200 border border-gray-300 font-light placeholder:text-gray-500 placeholder:font-sans rounded-full py-3 px-5" placeholder="John Smith" />
+                      <Input
+                        name="name"
+                        aria-invalid={!!errors.name}
+                        className="bg-gray-200 border border-gray-300 font-light placeholder:text-gray-500 placeholder:font-sans rounded-full py-3 px-5"
+                        placeholder="John Smith"
+                      />
+                      {errors.name && <p className="mt-1 text-xs text-red-600">{errors.name}</p>}
                     </div>
                     <div>
                       <label className="block text-sm text-primary mb-2">Email</label>
-                      <Input name="email" className="bg-gray-200 border border-gray-300 font-light placeholder:text-gray-500 placeholder:font-sans rounded-full py-3 px-5" type="email" placeholder="john.smith@example.com" />
+                      <Input
+                        name="email"
+                        type="email"
+                        aria-invalid={!!errors.email}
+                        className="bg-gray-200 border border-gray-300 font-light placeholder:text-gray-500 placeholder:font-sans rounded-full py-3 px-5"
+                        placeholder="john.smith@example.com"
+                      />
+                      {errors.email && <p className="mt-1 text-xs text-red-600">{errors.email}</p>}
                     </div>
                   </div>
                   <div>
                     <label className="block text-sm text-primary mb-2">Message</label>
-                    <Textarea name="message" className="bg-gray-200 border border-gray-300 font-light placeholder:text-gray-500 placeholder:font-sans rounded-2xl py-3 px-5" rows={5} placeholder="Hello! I'd like to enquire about..." />
+                    <Textarea
+                      name="message"
+                      aria-invalid={!!errors.message}
+                      className="bg-gray-200 border border-gray-300 font-light placeholder:text-gray-500 placeholder:font-sans rounded-2xl py-3 px-5"
+                      rows={5}
+                      placeholder="Hello! I'd like to enquire about..."
+                    />
+                    {errors.message && <p className="mt-1 text-xs text-red-600">{errors.message}</p>}
                   </div>
+                  {errors.server && (
+                    <div className="text-sm text-red-600">{errors.server}</div>
+                  )}
                   <Button type="submit" variant="ghost" disabled={submitting} className="text-[20px] [900px]:text-[26px] h-11 [900px]:h-12 px-8 [900px]:px-10">
                     {submitting ? "Sending..." : "Get Started"}
                   </Button>

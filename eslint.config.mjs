@@ -14,7 +14,11 @@ const eslintConfig = [
   {
     rules: {
       "react-hooks/rules-of-hooks": "off",
-      "import/no-anonymous-default-export": "off"
+      "import/no-anonymous-default-export": "off",
+      // Ignore Next.js recommendation to always use next/image
+      "@next/next/no-img-element": "off",
+      // Ignore unescaped entities like apostrophes in JSX text
+      "react/no-unescaped-entities": "off",
     }
   }
 ];

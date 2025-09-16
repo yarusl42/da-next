@@ -1,8 +1,8 @@
 import React from "react";
 import { motion } from "framer-motion";
-import gridImg1 from "@/assets/process_1.avif";
-import gridImg2 from "@/assets/process_2.avif";
-import gridImg3 from "@/assets/process_3.avif";
+import gridImg1 from "@/assets/process_1.jpg";
+import gridImg2 from "@/assets/process_2.jpg";
+import gridImg3 from "@/assets/process_3.jpg";
 
 const OurProcess: React.FC = () => {
   return (
@@ -30,7 +30,7 @@ const OurProcess: React.FC = () => {
             </div>
 
             <div className="rounded-3xl overflow-hidden h-[320px]">
-              <img src={gridImg1} alt="Process visual 1" className="w-full h-full object-cover" />
+              <img src={gridImg1.src} alt="Process visual 1" className="w-full h-full object-cover" />
             </div>
 
             <div className="rounded-3xl p-10 h-[320px] flex flex-col bg-primary text-white">
@@ -44,7 +44,7 @@ const OurProcess: React.FC = () => {
             </div>
 
             <div className="rounded-3xl overflow-hidden h-[320px]">
-              <img src={gridImg2} alt="Process visual 2" className="w-full h-full object-cover" />
+              <img src={gridImg2.src} alt="Process visual 2" className="w-full h-full object-cover" />
             </div>
 
             <div className="rounded-3xl p-10 h-[320px] flex flex-col md:col-span-2 bg-white text-[#303030]">
@@ -78,7 +78,7 @@ const OurProcess: React.FC = () => {
             </div>
 
             <div className="rounded-3xl overflow-hidden h-[320px]">
-              <img src={gridImg3} alt="Process visual 3" className="w-full h-full object-cover" />
+              <img src={gridImg3.src} alt="Process visual 3" className="w-full h-full object-cover" />
             </div>
           </div>
         </motion.div>

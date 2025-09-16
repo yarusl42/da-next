@@ -2,6 +2,7 @@ import { Facebook, Twitter, Instagram, Linkedin } from "lucide-react";
 import bigLogo from "@/assets/SKYNEX.png"
 import { CONTACT } from "@/data/contact";
 import redditIcon from "@/assets/reddit.svg";
+import Link from "next/link";
 
 // Simple labeled block wrapper to keep markup consistent
 const LabeledBlock: React.FC<{ label: string; children: React.ReactNode }> = ({ label, children }) => (
@@ -61,13 +62,13 @@ const Footer = () => {
               <div className="text-xs text-primary-foreground/60 mb-1">Navigate</div>
               <ul className="space-y-2 text-sm">
                 <li>
-                  <a href="/" className="block hover:opacity-80 transition text-sm md:text-base">Home</a>
+                  <Link href="/" className="block hover:opacity-80 transition text-sm md:text-base">Home</Link>
                 </li>
                 <li>
-                  <a href="/about" className="block hover:opacity-80 transition text-sm md:text-base">About</a>
+                  <Link href="/about" className="block hover:opacity-80 transition text-sm md:text-base">About</Link>
                 </li>
                 <li>
-                  <a href="/projects" className="block hover:opacity-80 transition text-sm md:text-base">Projects</a>
+                  <Link href="/projects" className="block hover:opacity-80 transition text-sm md:text-base">Projects</Link>
                 </li>
               </ul>
             </nav>

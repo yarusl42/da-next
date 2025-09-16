@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
-import randomImage from "@/assets/about/about.avif";
-import servicesImage from "@/assets/services_thumbnail.avif";
+import randomImage from "@/assets/about/about.jpg";
+import servicesImage from "@/assets/services_thumbnail.jpg";
 
 interface FlippingCarouselOverlayProps {
   motionTransform: any; // MotionValue<string> from useMotionTemplate
@@ -26,14 +26,14 @@ const FlippingCarouselOverlay: React.FC<FlippingCarouselOverlayProps> = ({ motio
             >
               {/* Front side */}
               <img
-                src={randomImage}
+                src={randomImage.src}
                 alt="Professional team collaboration"
                 className="w-[340px] h-[476px] object-cover rounded-3xl transform rotate-2 shadow-strong absolute top-0 left-0"
                 style={{ backfaceVisibility: "hidden" }}
               />
               {/* Back side */}
               <img
-                src={servicesImage}
+                src={servicesImage.src}
                 alt="Team working together"
                 className="w-[340px] h-[476px] object-cover rounded-3xl transform rotate-2 shadow-strong absolute top-0 left-0"
                 style={{ backfaceVisibility: "hidden", transform: "rotateY(180deg)" }}

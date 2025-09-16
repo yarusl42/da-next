@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import servicesImage from "@/assets/services_thumbnail.avif";
+import servicesImage from "@/assets/services_thumbnail.jpg";
 import QAndAList from "@/components/QAndAList";
 import { servicesData } from "@/data/servicesData";
 

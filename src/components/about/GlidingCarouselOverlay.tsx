@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
-import slideImg2 from "@/assets/about/tech_stack_thumbnail.avif";
-import slideImg3 from "@/assets/about/whyus.avif";
+import slideImg2 from "@/assets/about/tech_stack_thumbnail.jpg";
+import slideImg3 from "@/assets/about/whyus.jpg";
 
 interface GlidingCarouselOverlayProps {
   activeSlide: number;
@@ -32,12 +32,12 @@ const GlidingCarouselOverlay: React.FC<GlidingCarouselOverlayProps> = ({ activeS
                 transition={{ type: "spring", stiffness: 120, damping: 20 }}
               >
                 <img
-                  src={slideImg2}
+                  src={slideImg2.src}
                   alt="Showcase Tech"
                   className="w-[340px] h-[476px] object-cover rounded-3xl"
                 />
                 <img
-                  src={slideImg3}
+                  src={slideImg3.src}
                   alt="Showcase Why"
                   className="w-[340px] h-[476px] object-cover rounded-3xl"
                 />
