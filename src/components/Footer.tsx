@@ -80,7 +80,7 @@ const Footer = () => {
           
         </div>
       </div>
-      <img src={bigLogo} alt="Skynex Logo" className="w-full mt-6 md:mt-0" loading="lazy" />
+      <img src={bigLogo.src} alt="Skynex Logo" className="w-full mt-6 md:mt-0" loading="lazy" />
     </footer>
   );
 };

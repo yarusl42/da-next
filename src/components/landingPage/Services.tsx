@@ -35,13 +35,13 @@ const Services: React.FC<ServicesProps> = ({ id = "services", showImage = true }
           
           {showImage && (
             <motion.div
-              className="self-center md:self-start sm:mt-8"
+              className="md:sticky md:top-24 self-start"
               initial={{ opacity: 0, rotateY: 90, x: 100 }}
               animate={servicesInView ? { opacity: 1, rotateY: 0, x: 0 } : {}}
               transition={{ duration: 0.8, ease: "easeOut" }}
             >
               <img
-                src={servicesImage}
+                src={servicesImage.src}
                 alt="Professional team collaboration"
                 className="w-full max-w-[370px] h-auto [900px]:w-[370px] [900px]:h-[476px] object-cover rounded-3xl transform rotate-2 shadow-strong"
               />

@@ -18,13 +18,13 @@ const Testimonials: React.FC<TestimonialsProps> = ({ id = "testimonials" }) => {
         "Our new website not only looks amazing but also helped us show up on Google.",
       name: "Valeriya Yakusheva",
       company: "Tech School",
-      image: client1,
+      image: client1.src,
     },
     {
       text: "The process was easy and stress-free. Now clients can actually find us online.",
       name: "Sergey",
       company: "VTC service",
-      image: client2,
+      image: client2.src,
     },
     {},{},
     {
@@ -32,13 +32,13 @@ const Testimonials: React.FC<TestimonialsProps> = ({ id = "testimonials" }) => {
         "From zero online presence to fully booked. Couldn't be happier.",
       name: "Alina Dikaya",
       company: "Nail Salon",
-      image: client4,
+      image: client4.src,
     },
     {
       text: "Delivered exactly what was promised. Our website looks incredible.",
       name: "Dr. Adamskaya",
       company: "Plastic Surgeon",
-      image: client3,
+      image: client3.src,
     },
   ];
 

@@ -10,7 +10,7 @@ const NoiseBg: React.FC<NoiseBgProps> = ({ className = "", style }) => (
   <div 
         className={`fixed inset-0 opacity-10 bg-repeat z-0 ${className}`}
         style={{
-          backgroundImage: `url(${bgNoise})`,
+          backgroundImage: `url(${bgNoise.src})`,
           backgroundSize: '200px 200px',
           filter: 'brightness(0.1)',
           ...style

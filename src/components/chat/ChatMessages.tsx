@@ -1,5 +1,5 @@
 import React from "react";
-import SKYNEX from "@/assets/SKYNEX.png";
+import SKYNEX from "@/assets/favicon.webp";
 import { ChatStep } from "@/hooks/use-chat-state";
 
 interface ChatMessagesProps {
@@ -22,7 +22,7 @@ export const ChatMessages: React.FC<ChatMessagesProps> = ({
       {/* Bot greeting */}
       {botGreeted && (
         <div className="flex items-start gap-2">
-          <img src={SKYNEX} alt="Assistant" className="h-8 w-8 rounded-full object-cover flex-shrink-0 mt-1" />
+          <img src={SKYNEX.src} alt="Assistant" className="h-8 w-8 rounded-full object-cover flex-shrink-0 mt-1" />
           <div className="max-w-[85%] rounded-2xl rounded-bl-sm bg-secondary text-foreground px-3 py-2 text-sm">
             👋 Hi, I'm Skynex Assistant. What can I help you with today?
           </div>
@@ -42,7 +42,7 @@ export const ChatMessages: React.FC<ChatMessagesProps> = ({
       {step === "contact" && (
         botTyping ? (
           <div className="flex items-start gap-2">
-            <img src={SKYNEX} alt="Assistant" className="h-8 w-8 rounded-full object-cover flex-shrink-0" />
+            <img src={SKYNEX.src} alt="Assistant" className="h-8 w-8 rounded-full object-cover flex-shrink-0" />
             <div className="max-w-[85%] rounded-2xl rounded-bl-sm bg-secondary text-foreground px-3 py-2 text-sm">
               <div className="flex items-center gap-1 py-0.5">
                 <span className="inline-block h-2 w-2 rounded-full bg-muted-foreground/70 animate-pulse" style={{ animationDelay: "0ms" }} />
@@ -53,7 +53,7 @@ export const ChatMessages: React.FC<ChatMessagesProps> = ({
           </div>
         ) : (
           <div className="flex items-start gap-2">
-            <img src={SKYNEX} alt="Assistant" className="h-8 w-8 rounded-full object-cover flex-shrink-0" />
+            <img src={SKYNEX.src} alt="Assistant" className="h-8 w-8 rounded-full object-cover flex-shrink-0" />
             <div className="max-w-[85%] rounded-2xl rounded-bl-sm bg-secondary text-foreground px-3 py-2 text-sm">
               Got it 👍 Could you share your phone number so one of our team can get back to you?
             </div>
@@ -65,7 +65,7 @@ export const ChatMessages: React.FC<ChatMessagesProps> = ({
       {step === "sent" && (
         <div className="space-y-2">
           <div className="flex items-start gap-2">
-            <img src={SKYNEX} alt="Assistant" className="h-8 w-8 rounded-full object-cover flex-shrink-0" />
+            <img src={SKYNEX.src} alt="Assistant" className="h-8 w-8 rounded-full object-cover flex-shrink-0" />
             <div className="max-w-[85%] rounded-2xl rounded-bl-sm bg-secondary text-foreground px-3 py-2 text-sm">
               Got it 👍 Could you share your phone number so one of our team can get back to you?
             </div>
@@ -78,7 +78,7 @@ export const ChatMessages: React.FC<ChatMessagesProps> = ({
             </div>
           )}
           <div className="flex items-start gap-2">
-            <img src={SKYNEX} alt="Assistant" className="h-8 w-8 rounded-full object-cover flex-shrink-0" />
+            <img src={SKYNEX.src} alt="Assistant" className="h-8 w-8 rounded-full object-cover flex-shrink-0" />
             <div className="max-w-[85%] rounded-2xl rounded-bl-sm bg-secondary text-foreground px-3 py-2 text-sm">
               ✅ Thanks! We've received your details and our team will be in touch very soon.
             </div>

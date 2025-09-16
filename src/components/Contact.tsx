@@ -60,7 +60,7 @@ const Contact = ({ id = "contact" }: ContactProps) => {
               alt="Professional team collaboration"
               width={370}
               height={476}
-              className="w-full max-w-[370px] h-auto object-cover rounded-3xl shadow-strong rotate-[-2deg] mx-auto"
+              className="w-[370px] h-[476px] object-cover rounded-3xl shadow-strong rotate-[-2deg]"
               priority
             />
           </motion.div>

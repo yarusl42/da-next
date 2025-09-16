@@ -9,6 +9,7 @@ import { MessageForm } from "./chat/MessageForm";
 import { ContactForm } from "./chat/ContactForm";
 import { SentState } from "./chat/SentState";
 import { ChatMessages } from "./chat/ChatMessages";
+import pop from "@/assets/sounds/pop.mp3";
 
 const ChatWidget: React.FC = () => {
   const { open, setOpen } = useChatPersistence();
@@ -35,7 +36,7 @@ const ChatWidget: React.FC = () => {
     setBotTyping(true);
     setStep("contact");
     // Play send confirmation sound (user gesture exists)
-    playAudio("/sounds/pop.mp3", 0.7);
+    playAudio(pop, 0.7);
     setTimeout(() => setBotTyping(false), 800);
   };
 
@@ -65,7 +66,7 @@ const ChatWidget: React.FC = () => {
       if (!res.ok) throw new Error("Failed to send");
       setStep("sent");
       // Play confirmation sound on successful submission
-      playAudio("/sounds/pop.mp3", 0.7);
+      playAudio(pop, 0.7);
     } catch (err) {
       setError("Something went wrong. Please try again.");
     } finally {
